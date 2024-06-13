@@ -1,3 +1,4 @@
 test-picture.jpg
 node-modules
-.eslint.config.js
+eslint.config.js
+public/cam.jpg
