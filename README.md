@@ -22,7 +22,7 @@ To install all dependencies, please run the `install.sh` script using `sh ./inst
 - npm packages (`express`, `node-schedule`, `node-webcam`, `prompt` and `socket.io`)
 
 ### 2.2 Starting the app
-To start the app on localhost, run `npm start`. To start the app on a specific port, use the `PORT` environment variable like this: `PORT=<port> npm start`.
+To start the app on localhost, run `npm start`. To start the app on a specific port, use the `PORT` environment variable like this: `PORT=<port> npm start`. Then you can select the camera you want to use using the numbers which will be logged. Then the server will automatically start, once it logs `server listening on port 80`.
 
 ### 2.3 Stopping the app
 To stop the app, just press `CTRL` and `C`.
