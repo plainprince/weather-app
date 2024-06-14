@@ -10,7 +10,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server);
 
-const data = [];
+let data = [];
 let currentData = {
     temperature: 0,              // add sensor values
     light: 0,                    // add sensor values
@@ -19,10 +19,10 @@ let currentData = {
     windspeed: 0,                // add sensor values
     precipitation: 0             // add sensor values
 };
-fs.readFile('db.json', (err, data) => {
+fs.readFile('db.json', (err, fileData) => {
     if(err) throw err;
-    data = JSON.parse(data).data;
-    console.log(data);
+    data = JSON.parse(fileData);
+    //console.log(data);
 });
 
 var opts = {
