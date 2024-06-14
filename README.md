@@ -12,7 +12,7 @@ I have recently seen the weather app of the website of the goetheschule Ilmenau,
 - Every time a viewer gets any data, the connection will get opened and closed again, which could need a lot of power from the server.
 
 ## 2. Application
-This application is written in node.js. It requires linux to run, if the server is not running on Linux, please contact me via [plainprince@trash-mail.com](mailto:plainprince@trash-mail.com). (yes this is a trashmail)
+This application is written in node.js. It requires linux to run, if the server is not running on Linux, please contact me via [plainprince@trash-mail.com](mailto:plainprince@trash-mail.com).
 
 ### 2.1 Installation
 To install all dependencies, please run the `install.sh` script using `sh ./install.sh`. These dependencies include:  
@@ -29,4 +29,4 @@ To stop the app, just press `CTRL` and `C`.
 
 ## 3. Information
 - This app might still be edited. It should be updated on the github page.
-- For any bugs, please reach out to me via [plainprince@trash-mail.com](mailto:plainprince@trash-mail.com). (yes this is a trashmail)
+- For any bugs, please reach out to me via [plainprince@trash-mail.com](mailto:plainprince@trash-mail.com).
