@@ -63,7 +63,7 @@ socket.emit('getData');
 
 socket.on('data', data => {
     document.querySelector('#img').src = `/cam.jpg?${Date.now()}`;
-    if(!updated) {
+    if (!updated) {
         chartWeekly.destroy();
         chartWeekly = new Chart(canvasWeekly, {
             type: 'line',
@@ -128,6 +128,9 @@ socket.on('data', data => {
 const swiper = new Swiper('.swiper', {
     direction: 'vertical',
     loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+    },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
