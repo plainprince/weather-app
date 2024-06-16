@@ -51,10 +51,15 @@ webcam.list(list => {
 
 prompt.start();
 prompt.get(['camera'], (err, result) => {
-    if(result === parseInt(result) && result <= length) {
-        opts.device = webcams[parseInt(result)];
+    if(result.camera == parseInt(result.camera) && parseInt(result.camera) <= length) {
+        opts.device = webcams[parseInt(result.camera)].substring(3, webcams[parseInt(result.camera)].length);
         webcam = nodeWebcam.create(opts);
+        console.log('using webcam', opts.device)
+    }else {
+        console.log('invalid input:', result)
+        return
     }
+    if(err) throw err
     server.listen(process.env.PORT || 80, () => {
         console.log(`server listening on port ${process.env.PORT || 80}`);
     });
