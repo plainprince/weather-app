@@ -4,7 +4,7 @@ const prompt = require('prompt');
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const fs = require('fs');
-
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express();
@@ -73,6 +73,7 @@ webcam.capture('test-picture');
 
 app.use(express.static('public'));
 app.use(express.json())
+app.use(cors())
 
 io.on('connection', (socket) => {
     socket.on('getData', () => {
