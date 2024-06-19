@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
 app.post('/setData', (req, res) => {
     const { pwd } = req.body
     if (pwd === process.env.PASSWORD) {
-        const { readData } = req.body
+        const readData = req.body.data
         const { addToDB } = req.body
         if(addToDB) {
             data.push(readData);
