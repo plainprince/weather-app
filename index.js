@@ -5,6 +5,7 @@ const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const fs = require('fs');
 const schedule = require('node-schedule');
+require('dotenv').config()
 
 const app = express();
 const server = createServer(app);
@@ -65,20 +66,13 @@ prompt.get(['camera'], (err, result) => {
     });
     setInterval(() => {
         webcam.capture('public/cam');
-        currentData = {
-            temperature: 0,              // add sensor values
-            light: 0,                    // add sensor values
-            humidity: 0,                 // add sensor values
-            winddirection: 'something',  // add sensor values
-            windspeed: 0,                // add sensor values
-            precipitation: 0             // add sensor values
-        };
     }, 5000);
 });
 
 webcam.capture('test-picture');
 
 app.use(express.static('public'));
+app.use(express.json())
 
 io.on('connection', (socket) => {
     socket.on('getData', () => {
@@ -86,18 +80,22 @@ io.on('connection', (socket) => {
     });
 });
 
-schedule.scheduleJob('0 0 * * *', () => { 
-    const date = new Date().getFullYear() + '-' + new Date().getMonth() + '-' + new Date().getDate();
-    data.push({
-        date,
-        temperature: 0,              // add sensor values
-        light: 0,                    // add sensor values
-        humidity: 0,                 // add sensor values
-        winddirection: 'something',  // add sensor values
-        windspeed: 0,                // add sensor values
-        precipitation: 0             // add sensor values
-    });
-    fs.writeFile('db.json', JSON.stringify(data), { encoding: 'utf8' }, () => {
-        console.log('data saved');
-    });
-});
+app.post('/setData', (req, res) => {
+    const { pwd } = req.body
+    if (pwd === process.env.PASSWORD) {
+        const { readData } = req.body
+        const { addToDB } = req.body
+        if(addToDB) {
+            data.push(readData);
+            fs.writeFile('db.json', JSON.stringify(data), { encoding: 'utf8' }, () => {
+                console.log('data saved');
+            });
+        }else {
+            currentData = readData;
+        }
+        res.json({info: "uploaded successfully"})
+    }else {
+        res.json({info: "wrong password, better not try hacking us"})
+        console.log('somebody is trying to hack us (probably)')
+    }
+})
