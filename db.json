@@ -1,1 +1,56 @@
-{}
+[
+    {
+        "date": "2024-5-14",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    },
+    {
+        "date": "2024-5-15",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    },
+    {
+        "date": "2024-5-16",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    },
+    {
+        "date": "2024-5-17",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    },
+    {
+        "date": "2024-5-18",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    },
+    {
+        "date": "2024-5-19",
+        "temperature": 0,
+        "light": 0,
+        "humidity": 0,
+        "winddirection": "something",
+        "windspeed": 0,
+        "precipitation": 0
+    }
+]

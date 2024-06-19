@@ -68,7 +68,7 @@ socket.on('data', data => {
         chartWeekly = new Chart(canvasWeekly, {
             type: 'line',
             data: {
-                labels: data.data.slice(data.data.length - 7).map(i => {
+                labels: data.data.slice(-7).map(i => {
                     return i.date;
                 }),
                 datasets: returnLastData(data.data, 7),
@@ -85,7 +85,7 @@ socket.on('data', data => {
         chartMonthly = new Chart(canvasMonthly, {
             type: 'line',
             data: {
-                labels: data.data.slice(data.data.length - 31).map(i => {
+                labels: data.data.slice(-31).map(i => {
                     return i.date;
                 }),
                 datasets: returnLastData(data.data, 31),
@@ -102,7 +102,7 @@ socket.on('data', data => {
         chartYearly = new Chart(canvasYearly, {
             type: 'line',
             data: {
-                labels: data.data.slice(data.data.length - 365).map(i => {
+                labels: data.data.slice(-365).map(i => {
                     return i.date;
                 }),
                 datasets: returnLastData(data.data, 365),
@@ -144,31 +144,31 @@ function returnLastData(data, days) {
     return [
         {
             label: 'temperature',
-            data: data.slice(data.length - days).map(i => {
+            data: data.slice(-days).map(i => {
                 return i.temperature;
             })
         },
         {
             label: 'light-level',
-            data: data.slice(data.length - days).map(i => {
+            data: data.slice(-days).map(i => {
                 return i.light;
             })
         },
         {
             label: 'humidity',
-            data: data.slice(data.length - days).map(i => {
+            data: data.slice(-days).map(i => {
                 return i.humidity;
             })
         },
         {
             label: 'windspeed',
-            data: data.slice(data.length - days).map(i => {
+            data: data.slice(-days).map(i => {
                 return i.windspeed;
             })
         },
         {
             label: 'precipitation',
-            data: data.slice(data.length - days).map(i => {
+            data: data.slice(-days).map(i => {
                 return i.precipitation;
             })
         }
