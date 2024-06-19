@@ -4,7 +4,7 @@ const prompt = require('prompt');
 const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const fs = require('fs');
-const schedule = require('node-schedule');
+
 require('dotenv').config()
 
 const app = express();
